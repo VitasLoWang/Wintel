@@ -88,8 +88,8 @@ write-host "FolderSync 1.0 starting and logging into $dir\" -ForegroundColor cya
 write-host "source: $source"
 write-host "target: $target"
 if($source -eq "" -or $target -eq ""){
-    log "you need to set source and target folders in the code"
-    write-host "you need to set source and target folders in the code" -ForegroundColor red
+    log "you need to specify -source and -target parameters"
+    write-host "you need to specify -source and -target parameters" -ForegroundColor red
     return 2
 }
 if($source -eq $target){
