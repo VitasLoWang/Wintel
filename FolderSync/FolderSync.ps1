@@ -1,6 +1,8 @@
-﻿#PARAMS
-$source=""    #UNC supported too
-$target=""    #use full path
+﻿#UNC supported too
+param (
+[Parameter(Mandatory)]$source,
+[Parameter(Mandatory)]$target    #use full path
+)
 $stopOnCopyError=$true
 $alsodelete=$true      #if set to false it will not remove items from target folder
 
@@ -191,3 +193,4 @@ $targetitems|ForEach-Object {
         }
     }
 }
+cd $dir
