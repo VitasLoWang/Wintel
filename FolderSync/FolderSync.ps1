@@ -120,6 +120,7 @@ if($sourcename -ne $targetname){
         write-host "target folder already has items. They will be removed if not present in source!" -ForegroundColor yellow
         $choice=read-host "is this OK? (y to continue, anything else to quit)"
         if($choice -ne "y"){
+            cd $dir
             return 2
         }
     }
