@@ -1,8 +1,6 @@
 ﻿#PARAMS
-$source="d:\download\lt_app_showcase_joomla_free\"    #UNC supported too
-#$source="c:\temp\rawaccel"
-#$target="d:\download\lt_app_showcase_joomla_free\"    #use full path
-$target="x:\temp\RawAccel\.git\lt_app_showcase_joomla_free"
+$source=""    #UNC supported too
+$target=""    #use full path
 $stopOnCopyError=$true
 $alsodelete=$true      #if set to false it will not remove items from target folder
 
@@ -77,7 +75,7 @@ if ($source[-1] -eq "\") {   #remove trailing backslashes
 }
 if ($target[-1] -eq "\") {
     $target = $target.Substring(0,($target.Length-1))
-}#$target="z:\syncrify\RawAccel\"    #use full path
+}
 
 $scriptpath=$MyInvocation.MyCommand.Path
 $dir = Split-Path $scriptpath
@@ -189,7 +187,6 @@ $targetitems|ForEach-Object {
         if(!(test-path $sourcepath)){
             write-host "$sourcepath no longer in source. Deleting in target"
             log("$sourcepath no longer in source. Deleting in target")
-            $_.FullName
             Remove-Item $_.fullname -force -recurse
         }
     }
