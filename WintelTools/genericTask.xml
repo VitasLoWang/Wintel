@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-16"?>
+<Task version="1.2" xmlns="http://schemas.microsoft.com/windows/2004/02/mit/task">
+  <RegistrationInfo>
+    <Date>2018-10-17T19:52:43.9892966</Date>
+    <Author>UMC\Vitezslav.Zurek</Author>
+    <Description>start windows update check and create logfile</Description>
+  </RegistrationInfo>
+  <Triggers />
+  <Principals>
+    <Principal id="Author">
+      <UserId>S-1-5-18</UserId>
+      <RunLevel>HighestAvailable</RunLevel>
+    </Principal>
+  </Principals>
+  <Settings>
+    <MultipleInstancesPolicy>IgnoreNew</MultipleInstancesPolicy>
+    <DisallowStartIfOnBatteries>true</DisallowStartIfOnBatteries>
+    <StopIfGoingOnBatteries>true</StopIfGoingOnBatteries>
+    <AllowHardTerminate>true</AllowHardTerminate>
+    <StartWhenAvailable>false</StartWhenAvailable>
+    <RunOnlyIfNetworkAvailable>false</RunOnlyIfNetworkAvailable>
+    <IdleSettings>
+      <StopOnIdleEnd>true</StopOnIdleEnd>
+      <RestartOnIdle>false</RestartOnIdle>
+    </IdleSettings>
+    <AllowStartOnDemand>true</AllowStartOnDemand>
+    <Enabled>true</Enabled>
+    <Hidden>false</Hidden>
+    <RunOnlyIfIdle>false</RunOnlyIfIdle>
+    <WakeToRun>false</WakeToRun>
+    <ExecutionTimeLimit>PT8H</ExecutionTimeLimit>
+    <Priority>7</Priority>
+  </Settings>
+  <Actions Context="Author">
+    <Exec>
+      <Command>powershell.exe</Command>
+      <Arguments>-ExecutionPolicy ByPass -Command "c:\ibm\WUinstall.ps1" N N</Arguments>
+    </Exec>
+  </Actions>
+</Task>
